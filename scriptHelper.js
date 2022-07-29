@@ -17,12 +17,33 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
+    if(testInput === ""){
+        return "Empty"
+    } else if (isNaN(testInput)){
+
+        return "Not a Number"
+    } else {
+        return "Is a NUmber"
+    }
    
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" ||  validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert(" All fields are required!")
+    }
+    if (validateInput(pilot) === "Not a Number" || validateInput(copilot) === "Not a Number" ){
+        alert('You must enter a valid input')
+
    
 }
+let launchStatus = document.getElementById('launchStatus');
+let pilotStatus = document.getElementById('pilotStatus');
+let copilotStatus = document.getElementById('copilotStatus');
+let cargoStatus = document.getElementById('cargoStatus');
+let fuelStatus = document.getElementById('fuelStatus')
+
+
 
 async function myFetch() {
     let planetsReturned;

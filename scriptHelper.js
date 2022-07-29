@@ -37,7 +37,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
    
 }
-}
+
 let launchStatus = document.getElementById('launchStatus');
 let pilotStatus = document.getElementById("pilotStatus");
 let copilotStatus = document.getElementById('copilotStatus');
@@ -62,12 +62,18 @@ if (cargoLevel > 10000){
     launchStatus.innerHTML = "Shuttle not ready for launch";
     launchStatus.style.color = 'red';
 }
-if (fuelLevel > 10000)
+if (fuelLevel > 10000 && cargoLevel < 10000){
+    cargoStatus.innerHTML = 'There is adequate cargo for the shuttle to take off.';
+    fuelStatus.innerHTML =  'Fuel level adequate for launch'
+    launchStatus.innerHTML = "Shuttle is ready for launch";
+    launchStatus.style.color = 'green';
+
+}
+}
 
 
 
-
-    async () => {
+async function myFetch(){
         let planetsReturned;
 
         planetsReturned = await fetch().then(function (response) {

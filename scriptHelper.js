@@ -39,21 +39,42 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 }
 let launchStatus = document.getElementById('launchStatus');
-let pilotStatus = document.getElementById('pilotStatus');
+let pilotStatus = document.getElementById("pilotStatus");
 let copilotStatus = document.getElementById('copilotStatus');
 let cargoStatus = document.getElementById('cargoStatus');
-let fuelStatus = document.getElementById('fuelStatus')
+let fuelStatus = document.getElementById('fuelStatus');
+
+pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
+copilotStatus.innerHTML = `Copilot ${Copilot} is ready for launch.`
+
+list = document.getElementById('faultyItems');
+list.style.visibility = 'visible';
+
+if (fuelLevel < 10000) {
+    fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
+    launchStatus.innerHTML = "Shuttle not ready for launch";
+    launchStatus.style.color = 'red';
+
+}
+
+if (cargoLevel > 10000){
+    cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off.';
+    launchStatus.innerHTML = "Shuttle not ready for launch";
+    launchStatus.style.color = 'red';
+}
+if (fuelLevel > 10000)
 
 
 
-async function myFetch() {
-    let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    async () => {
+        let planetsReturned;
+
+        planetsReturned = await fetch().then(function (response) {
         });
 
-    return planetsReturned;
-}
+        return planetsReturned;
+    }
 
 function pickPlanet(planets) {
 }

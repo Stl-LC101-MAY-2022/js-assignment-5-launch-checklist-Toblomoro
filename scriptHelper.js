@@ -37,6 +37,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
    
 }
+}
 let launchStatus = document.getElementById('launchStatus');
 let pilotStatus = document.getElementById('pilotStatus');
 let copilotStatus = document.getElementById('copilotStatus');

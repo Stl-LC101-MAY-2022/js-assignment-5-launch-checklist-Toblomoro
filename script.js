@@ -18,20 +18,22 @@ window.addEventListener("load", function() {
 
        addDestinationInfo(document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.image)
    })
-   form.addEventListener('submit', function(event){
+   form.addEventListener("submit", function(event) {
     event.preventDefault();
-    let pilotInput = document.querySelector('input[name=pilotName]');
-    let pilot = pilotInput.value;
-    let copilotInput = document.querySelector('input[name=copilotName]')
+
+    let pilotInput = document.querySelector("input[name=pilotName]");
+
+     let pilot = pilotInput.value;
+    let copilotInput = document.querySelector("input[name=copilotName]");
     let copilot = copilotInput.value;
+    let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
 
-    let fuelLevelInput = document.querySelector('input [name=fuelLevel]');
-    let fuelLevel=fuelLevelInput.value;
-    let cargoMassInput = document.querySelector('input [name=cargoMass]');
-    let cargoLevel=cargoMassInput.value;
-    list = document.getElementById('faultyItems');
+    let fuelLevel = fuelLevelInput.value;
+    let cargoMassInput = document.querySelector("input[name=cargoMass]");
+        let cargoLevel = cargoMassInput.value;
+        let list = document.getElementById('faultyItems');
 
-   formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
+    formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
    })
    
 });

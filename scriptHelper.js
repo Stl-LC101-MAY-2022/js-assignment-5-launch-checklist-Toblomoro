@@ -30,12 +30,22 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  `
              
  }
+ function validateInput(testInput) {
+
+    if (String(testInput) === "") {
+        return "Empty"
+    } else if (isNaN(Number(testInput))){
+        return "Not a Number"
+    } else {
+        return "Is a Number"
+    }
+   };
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" ||  validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-        alert(" All fields are required!")
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
+        alert("All fields are required!");
     }
-    if (validateInput(pilot) === "Not a Number" || validateInput(copilot) === "Not a Number" ){
+    if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" ){
         alert('You must enter a valid input')
 
    
@@ -48,7 +58,7 @@ let cargoStatus = document.getElementById('cargoStatus');
 let fuelStatus = document.getElementById('fuelStatus');
 
 pilotStatus.innerText = `Pilot ${pilot} is ready for launch.`;
-copilotStatus.innerText = `Copilot ${Copilot} is ready for launch.`
+copilotStatus.innerText = `Copilot ${copilot} is ready for launch.`
 
 list = document.getElementById('faultyItems');
 list.style.visibility = 'visible';

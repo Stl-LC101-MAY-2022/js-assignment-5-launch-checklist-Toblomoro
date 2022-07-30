@@ -56,28 +56,28 @@ let copilotStatus = document.getElementById('copilotStatus');
 let cargoStatus = document.getElementById('cargoStatus');
 let fuelStatus = document.getElementById('fuelStatus');
 
-pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
-copilotStatus.innerHTML = `Copilot ${Copilot} is ready for launch.`
+pilotStatus.innerText = `Pilot ${pilot} is ready for launch.`;
+copilotStatus.innerText = `Copilot ${Copilot} is ready for launch.`
 
 list = document.getElementById('faultyItems');
 list.style.visibility = 'visible';
 
 if (fuelLevel < 10000) {
-    fuelStatus.innerHTML = 'There is not enough fuel for the journey.';
-    launchStatus.innerHTML = "Shuttle not ready for launch";
+    fuelStatus.innerText = 'There is not enough fuel for the journey.';
+    launchStatus.innerText = "Shuttle not ready for launch";
     launchStatus.style.color = 'red';
 
 }
 
 if (cargoLevel > 10000){
-    cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off.';
-    launchStatus.innerHTML = "Shuttle not ready for launch";
+    cargoStatus.innerText = 'There is too much mass for the shuttle to take off.';
+    launchStatus.innerText = "Shuttle not ready for launch";
     launchStatus.style.color = 'red';
 }
 if (fuelLevel > 10000 && cargoLevel < 10000){
-    cargoStatus.innerHTML = 'There is adequate cargo for the shuttle to take off.';
-    fuelStatus.innerHTML =  'Fuel level adequate for launch'
-    launchStatus.innerHTML = "Shuttle is ready for launch";
+    cargoStatus.innerText = 'There is adequate cargo for the shuttle to take off.';
+    fuelStatus.innerText =  'Fuel level adequate for launch'
+    launchStatus.innerText = "Shuttle is ready for launch";
     launchStatus.style.color = 'green';
 
 }
@@ -94,12 +94,11 @@ async function myFetch(){
         return planetsReturned;
     }
 
-function pickPlanet(planets) {
-    let destinationPlanet = Math.floor(math.random() *planets.length);
-
-    
-    return planets[destinationPlanet]
-}
+    function pickPlanet(planets) {
+        let destinationPlanet = Math.floor(Math.random()*planets.length); 
+        
+        return planets[destinationPlanet]
+        }
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
